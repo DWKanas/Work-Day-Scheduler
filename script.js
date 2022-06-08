@@ -18,10 +18,14 @@ function makeCalender() {
     rowEl.addClass('row')
     var inputTextAreaEl = $('<textarea>')
     var saveButtonEl = $('<button>')
+    saveButtonEl.addClass('saveBtn')
 
     containerEl.append(timeBlockEl)
     timeBlockEl.append(hourContainerEl)
     timeBlockEl.append(rowEl)
+    rowEl.append(inputTextAreaEl)
+    rowEl.append(saveButtonEl)
+    
     console.log('test')
 
    }
