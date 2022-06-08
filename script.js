@@ -9,11 +9,23 @@ currentDayEl.text(moment().format('LLL'));
 
 
 function makeCalender() {
+   for (var i = 9; i < 18; i ++) {
     var timeBlockEl = $('<div>')
-    timeBlockEl.addclass('time-block')
+    timeBlockEl.addClass('time-block')
     var hourContainerEl = $('<div>')
-    hourContainerEl.addclass('hour')
+    hourContainerEl.addClass('hour')
     var rowEl = $('<div>')
-    rowEl.addclass('row')
+    rowEl.addClass('row')
+    var inputTextAreaEl = $('<textarea>')
+    var saveButtonEl = $('<button>')
+
+    containerEl.append(timeBlockEl)
+    timeBlockEl.append(hourContainerEl)
+    timeBlockEl.append(rowEl)
+    console.log('test')
+
+   }
 
 }
+
+makeCalender()
