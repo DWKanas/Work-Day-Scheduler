@@ -1,16 +1,17 @@
+// grabbed existing html and css elements and put them in a variable
 var containerEl = $('.container')
 var currentDayEl = $('#currentDay')
 var currentHourMinute = moment().format();
 var currentHour = currentHourMinute[11] + currentHourMinute[12];
 
-console.log(currentHour)
 
+// display current time in a certain format
 currentDayEl.text(moment().format('LLL'));
 
 
 function makeCalender() {
    for (var i = 9; i < 18; i ++) {
-       var timeBlockEl = $('<div>')
+       var timeBlockEl = $('<div>')   //making divs and adding css classes to them to be manipulated
        timeBlockEl.addClass('time-block')
        var hourContainerEl = $('<div>')
        hourContainerEl.addClass('hour')
@@ -26,32 +27,32 @@ function makeCalender() {
        
        
        
-       containerEl.append(timeBlockEl);
+       containerEl.append(timeBlockEl);  // adding all the conatainers and divs together
        timeBlockEl.append(hourContainerEl);
        timeBlockEl.append(rowEl)
        rowEl.append(inputTextAreaEl);
        rowEl.append(saveButtonEl);
        
-       setHour(i, hourContainerEl)
+       setHour(i, hourContainerEl)  //set the hour and color when they change
        setColor(i, inputTextAreaEl)
        
-       console.log('test')
+       
        saveButtonEl.on('click', 'button', keepText)
        
     }
     
 }
 
-
+// function for keeping text in local storage
 function keepText() {
     for (var i = 9; i < 18; i ++) {
         if($(this).attr('id') === i) {
             localStorage.setItem('todo${i}', $(this).siblings().val())
-            console.log("keeptext ran")
+            
         }
     }
 }
-
+// function for setting the hour
 function setHour(hour, hourEl) {
     if (hour < 12) {
         hourEl.text(hour + "am")
@@ -64,7 +65,7 @@ function setHour(hour, hourEl) {
         hourEl.text(hour-12 + "pm")
     }
 }  
-
+// function for setting the color
 function setColor(i, inputTextAreaEl) {
     if (i < currentHour) {
         inputTextAreaEl.addClass('past')
@@ -77,5 +78,5 @@ function setColor(i, inputTextAreaEl) {
     }
 }
 
-
+// running the entire function
 makeCalender()
