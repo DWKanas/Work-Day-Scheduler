@@ -55,6 +55,17 @@ function setHour(hour, hourEl) {
     }
 }  
 
+function setColor(i, inputTextAreaEl) {
+    if (i < currentHour) {
+        inputTextAreaEl.addClass('past')
+    }
+    else if (i === currentHour) {
+        inputTextAreaEl.addClass('present')
+    }
+    else {
+        inputTextAreaEl.addClass('future')
+    }
+}
 
 
 makeCalender()
