@@ -42,6 +42,19 @@ function keepText() {
     }
 }
 
+function setHour(hour, hourEl) {
+    if (hour < 12) {
+        hourEl.text(hour + "am")
 
-// function 
+    }
+    else if (hour === 12) {
+        hourEl.text(hour + "pm")
+    }
+    else {
+        hourEl.text(hour-12 + "pm")
+    }
+}  
+
+
+
 makeCalender()
