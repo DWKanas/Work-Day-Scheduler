@@ -18,15 +18,25 @@ function makeCalender() {
     var rowEl = $('<div>')
     rowEl.addClass('row')
     var inputTextAreaEl = $('<textarea>')
+    inputTextAreaEl.text(localStorage.getItem(`todo${i}`) || '');
     var saveButtonEl = $('<button>')
     saveButtonEl.addClass('saveBtn')
     saveButtonEl.attr('id', '${i}')
 
     containerEl.append(timeBlockEl)
-    timeBlockEl.append(hourContainerEl)
     timeBlockEl.append(rowEl)
-    rowEl.append(inputTextAreaEl)
+    timeBlockEl.append(inputTextAreaEl)
+    timeBlockEl.append(saveButtonEl)
+    rowEl.append(hourContainerEl)
     rowEl.append(saveButtonEl)
+
+
+
+    // containerEl.append(timeBlockEl);
+    // timeBlockEl.append(hourContainerEl);
+    // timeBlockEl.append(rowEl)
+    // rowEl.append(inputTextAreaEl);
+    // rowEl.append(saveButtonEl);
 
     setHour(i, hourContainerEl)
     setColor(i, inputTextAreaEl)
