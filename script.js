@@ -7,50 +7,47 @@ console.log(currentHour)
 
 currentDayEl.text(moment().format('LLL'));
 
-// containerEl.on('click', 'button', )
 
 function makeCalender() {
    for (var i = 9; i < 18; i ++) {
-    var timeBlockEl = $('<div>')
-    timeBlockEl.addClass('time-block')
-    var hourContainerEl = $('<div>')
-    hourContainerEl.addClass('hour')
-    var rowEl = $('<div>')
-    rowEl.addClass('row')
-    var inputTextAreaEl = $('<textarea>')
-    inputTextAreaEl.text(localStorage.getItem(`todo${i}`) || '');
-    var saveButtonEl = $('<button>')
-    saveButtonEl.addClass('saveBtn')
-    saveButtonEl.attr('id', '${i}')
-
-    // containerEl.append(timeBlockEl)
-    // timeBlockEl.append(rowEl)
-    // timeBlockEl.append(inputTextAreaEl)
-    // timeBlockEl.append(saveButtonEl)
-    // rowEl.append(hourContainerEl)
-    // rowEl.append(saveButtonEl)
-
-
-
-    containerEl.append(timeBlockEl);
-    timeBlockEl.append(hourContainerEl);
-    timeBlockEl.append(rowEl)
-    rowEl.append(inputTextAreaEl);
-    rowEl.append(saveButtonEl);
-
-    setHour(i, hourContainerEl)
-    setColor(i, inputTextAreaEl)
-
-    console.log('test')
-
-   }
-
+       var timeBlockEl = $('<div>')
+       timeBlockEl.addClass('time-block')
+       var hourContainerEl = $('<div>')
+       hourContainerEl.addClass('hour')
+       var rowEl = $('<div>')
+       rowEl.addClass('row')
+       var inputTextAreaEl = $('<textarea>')
+       inputTextAreaEl.text(localStorage.getItem(`todo${i}`) || '');
+       var saveButtonEl = $('<button>')
+       saveButtonEl.addClass('saveBtn')
+       saveButtonEl.attr('id', '${i}')
+       
+       
+       
+       
+       
+       containerEl.append(timeBlockEl);
+       timeBlockEl.append(hourContainerEl);
+       timeBlockEl.append(rowEl)
+       rowEl.append(inputTextAreaEl);
+       rowEl.append(saveButtonEl);
+       
+       setHour(i, hourContainerEl)
+       setColor(i, inputTextAreaEl)
+       
+       console.log('test')
+       saveButtonEl.on('click', 'button', keepText)
+       
+    }
+    
 }
+
 
 function keepText() {
     for (var i = 9; i < 18; i ++) {
         if($(this).attr('id') === i) {
             localStorage.setItem('todo${i}', $(this).siblings().val())
+            console.log("keeptext ran")
         }
     }
 }
