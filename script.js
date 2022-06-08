@@ -28,6 +28,9 @@ function makeCalender() {
     rowEl.append(inputTextAreaEl)
     rowEl.append(saveButtonEl)
 
+    setHour(i, hourContainerEl)
+    setColor(i, inputTextAreaEl)
+
     console.log('test')
 
    }
